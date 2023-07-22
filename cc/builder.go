@@ -1037,20 +1037,8 @@ func transformStrip(ctx android.ModuleContext, inputFile android.Path,
 	outputFile android.WritablePath, flags StripFlags) {
 
 	args := ""
-	if flags.StripAddGnuDebuglink {
-		args += " --add-gnu-debuglink"
-	}
 	if flags.StripKeepMiniDebugInfo {
 		args += " --keep-mini-debug-info"
-	}
-	if flags.StripKeepSymbols {
-		args += " --keep-symbols"
-	}
-	if flags.StripKeepSymbolsList != "" {
-		args += " -k" + flags.StripKeepSymbolsList
-	}
-	if flags.StripKeepSymbolsAndDebugFrame {
-		args += " --keep-symbols-and-debug-frame"
 	}
 	if ctx.Windows() {
 		args += " --windows"

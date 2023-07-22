@@ -144,6 +144,10 @@ var (
 
 		// Make paths in deps files relative.
 		"-no-canonical-prefixes",
+
+		"-fdata-sections",
+		"-ffunction-sections",
+		"-fno-exceptions",
 	}
 
 	commonGlobalConlyflags = []string{}
@@ -202,6 +206,7 @@ var (
 		"-Wl,--exclude-libs,libgcc_stripped.a",
 		"-Wl,--exclude-libs,libunwind_llvm.a",
 		"-Wl,--exclude-libs,libunwind.a",
+		"-Wl,--gc-sections",
 	}
 
 	deviceGlobalLldflags = append(append(deviceGlobalLdflags, commonGlobalLldflags...),
