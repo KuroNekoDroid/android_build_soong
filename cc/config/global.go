@@ -108,6 +108,10 @@ var (
 		// This macro allows the bionic versioning.h to indirectly determine whether the
 		// option -Wunguarded-availability is on or not.
 		"-D__ANDROID_UNAVAILABLE_SYMBOLS_ARE_WEAK__",
+
+		"-fdata-sections",
+		"-ffunction-sections",
+		"-fno-exceptions",
 	}
 
 	commonGlobalConlyflags = []string{}
@@ -163,6 +167,7 @@ var (
 		"-Wl,--exclude-libs,libgcc_stripped.a",
 		"-Wl,--exclude-libs,libunwind_llvm.a",
 		"-Wl,--exclude-libs,libunwind.a",
+		"-Wl,--gc-sections",
 	}
 
 	deviceGlobalLldflags = append(deviceGlobalLdflags, commonGlobalLldflags...)

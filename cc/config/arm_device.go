@@ -42,6 +42,7 @@ var (
 		"-Wl,-m,armelf",
 		// Revert this after b/319464283 is fixed
 		"-Wl,-mllvm", "-Wl,-enable-shrink-wrap=false",
+		"-Wl,--gc-sections",
 	}
 
 	armLldflags = armLdflags
@@ -56,7 +57,11 @@ var (
 
 	armThumbCflags = []string{
 		"-mthumb",
-		"-Os",
+		"-fdata-sections",
+		"-ffunction-sections",
+		"-Oz",
+		"-fno-exceptions",
+		"-fno-rtti",
 	}
 
 	armArchVariantCflags = map[string][]string{
