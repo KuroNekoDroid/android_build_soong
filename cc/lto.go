@@ -94,7 +94,7 @@ func (lto *lto) flags(ctx BaseModuleContext, flags Flags) Flags {
 		var ltoCFlag string
 		var ltoLdFlag string
 		if lto.ThinLTO() {
-			ltoCFlag = "-flto=thin -fsplit-lto-unit"
+			ltoCFlag = "-flto=thin -fsplit-lto-unit -funified-lto"
 		} else if lto.FullLTO() {
 			ltoCFlag = "-flto"
 		} else {
