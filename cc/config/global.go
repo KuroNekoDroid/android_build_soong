@@ -48,7 +48,6 @@ var (
 		"-Wno-multichar",
 
 		"-O3",
-		"-g",
 		"-fdebug-default-version=5",
 
 		"-fno-strict-aliasing",
