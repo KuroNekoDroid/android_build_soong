@@ -263,6 +263,14 @@ org\.lineageos\.platform\.internal
 com\.nvidia
 com\.nvidia\..*
 
+# OnePlus
+com.oplus.*
+net.oneplus.*
+oplus.*
+vendor.oplus.*
+com.oneplus.*
+vendor.oneplus.*
+
 # QC adds
 com.qualcomm.qti
 com.quicinc.tcmiface
@@ -275,3 +283,4 @@ qcom.fmradio
 ###################################################
 # IFAA Manager used for Alipay and/or WeChat payment
 org\.ifaa\.android\.manager.*
+org\.ifaa\.aidl.*
