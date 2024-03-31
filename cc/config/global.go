@@ -48,6 +48,7 @@ var (
 		"-Wno-multichar",
 
 		"-O3",
+		"-fno-stack-protector",
 		"-fdebug-default-version=5",
 
 		"-fno-strict-aliasing",
@@ -127,7 +128,7 @@ var (
 		"-fdata-sections",
 		"-fno-short-enums",
 		"-funwind-tables",
-		"-fstack-protector-strong",
+		"-fno-stack-protector",
 		"-Wa,--noexecstack",
 		"-D_FORTIFY_SOURCE=2",
 
