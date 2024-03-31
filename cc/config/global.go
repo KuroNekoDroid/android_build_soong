@@ -435,15 +435,15 @@ func init() {
 		case "debug_level_0":
 			flags = append(flags, "-g0")
 		case "debug_level_1":
-			flags = append(flags, "-g1")
+			flags = append(flags, "-g0")
 		case "debug_level_2":
-			flags = append(flags, "-g2")
+			flags = append(flags, "-g0")
 		case "debug_level_3":
-			flags = append(flags, "-g3")
+			flags = append(flags, "-g0")
 		case "debug_level_g":
-			flags = append(flags, "-g")
+			flags = append(flags, "-g0")
 		default:
-			flags = append(flags, "-g")
+			flags = append(flags, "-g0")
 		}
 
 		return strings.Join(flags, " ")
