@@ -165,7 +165,7 @@ var (
 		"-fdata-sections",
 		"-fno-short-enums",
 		"-funwind-tables",
-		"-fstack-protector-strong",
+		"-fno-stack-protector",
 		"-Wa,--noexecstack",
 		"-D_FORTIFY_SOURCE=2",
 
