@@ -58,6 +58,8 @@ type LTOProperties struct {
 
 	// Use -fwhole-program-vtables cflag.
 	Whole_program_vtables *bool
+
+	Lto_Instr100 *bool
 }
 
 type lto struct {
@@ -128,6 +130,13 @@ func (lto *lto) flags(ctx BaseModuleContext, flags Flags) Flags {
 			flags.Local.LdFlags = append(flags.Local.LdFlags,
 				"-Wl,-plugin-opt,-import-instr-limit=10")
 		}
+
+		// Reduce the inlining threshold for a better balance of binary size and
+		// performance.
+		if !Bool(lto.Properties.Lto_Instr100) {
+				ltoLdFlags = append(ltoLdFlags, "-Wl,-plugin-opt,-import-instr-limit=40")
+		}
+
 
 		//Polly + Polly DCE
 		flags.Local.LdFlags = append(flags.Local.LdFlags,
