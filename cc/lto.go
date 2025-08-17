@@ -134,7 +134,7 @@ func (lto *lto) flags(ctx BaseModuleContext, flags Flags) Flags {
 		// Reduce the inlining threshold for a better balance of binary size and
 		// performance.
 		if !Bool(lto.Properties.Lto_Instr100) {
-				ltoLdFlags = append(ltoLdFlags, "-Wl,-plugin-opt,-import-instr-limit=40")
+				flags.Local.LdFlags = append(flags.Local.LdFlags, "-Wl,-plugin-opt,-import-instr-limit=40")
 		}
 
 
