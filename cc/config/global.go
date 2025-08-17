@@ -48,7 +48,7 @@ var (
 		"-Wno-multichar",
 
 		"-O3",
-		"-ggdb",
+		"-g0",
 		"-fdebug-default-version=5",
 		"-Wno-pass-failed",
 
@@ -114,9 +114,6 @@ var (
 
 		// Turn off FMA which got enabled by default in clang-r445002 (http://b/218805949)
 		"-ffp-contract=off",
-		"-fdata-sections",
-		"-ffunction-sections",
-		"-fno-exceptions",
 	}
 
 	commonGlobalConlyflags = []string{}
@@ -316,7 +313,7 @@ var (
 
 	// prebuilts/clang default settings.
 	ClangDefaultBase         = "prebuilts/clang/host"
-	ClangDefaultVersion      = "clang-r498229"
+	ClangDefaultVersion      = "clang-latest"
 	ClangDefaultShortVersion = "17.0.3"
 
 	// Directories with warnings from Android.bp files.

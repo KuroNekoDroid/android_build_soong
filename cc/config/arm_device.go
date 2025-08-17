@@ -50,25 +50,7 @@ var (
 
 	armThumbCflags = []string{
 		"-mthumb",
-		"-fdata-sections",
-		"-ffunction-sections",
 		"-Oz",
-		"-ggdb",
-		"-fno-exceptions",
-		"-fno-rtti",
-		"-fdata-sections",
-		"-ffunction-sections",
-		"-finline-functions",
-		"-ftree-vectorize",
-		"-funroll-loops",
-		"-ffinite-math-only",
-		"-freciprocal-math",
-		"-fcf-protection=none",
-		"-fno-trapping-math",
-		"-fno-math-errno",
-		"-fcf-protection=none",
-		"-ffp-contract=fast",
-		"-fomit-frame-pointer",
 	}
 
 	armArchVariantCflags = map[string][]string{

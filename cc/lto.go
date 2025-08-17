@@ -91,7 +91,14 @@ func (lto *lto) flags(ctx BaseModuleContext, flags Flags) Flags {
 	if lto.LTO(ctx) {
 		var ltoCFlag string
 		var ltoLdFlag string
-		ltoCFlag = "-flto"
+		if lto.ThinLTO() {
+			ltoCFlag = "-flto=thin -fsplit-lto-unit"
+		} else if lto.FullLTO() {
+			ltoCFlag = "-flto"
+		} else {
+			ltoCFlag = "-flto=thin -fsplit-lto-unit"
+			ltoLdFlag = "-Wl,--lto-O0"
+		}
 
 
 		flags.Local.CFlags = append(flags.Local.CFlags, ltoCFlag)
@@ -119,15 +126,8 @@ func (lto *lto) flags(ctx BaseModuleContext, flags Flags) Flags {
 		// limit to 5 LLVM IR instructions, to balance binary size increase and performance.
 		if !ctx.isPgoCompile() && !ctx.isAfdoCompile() {
 			flags.Local.LdFlags = append(flags.Local.LdFlags,
-				"-Wl,-plugin-opt,-import-instr-limit=40")
+				"-Wl,-plugin-opt,-import-instr-limit=10")
 		}
-		//LTO
-		flags.Local.LdFlags = append(flags.Local.LdFlags,
-			"-Wl,-mllvm,-inline-threshold=1000")
-		flags.Local.LdFlags = append(flags.Local.LdFlags,
-			"-Wl,-mllvm,-inlinehint-threshold=760")
-		flags.Local.LdFlags = append(flags.Local.LdFlags,
-			"-Wl,-mllvm,-unroll-threshold=400")
 
 		//Polly + Polly DCE
 		flags.Local.LdFlags = append(flags.Local.LdFlags,
